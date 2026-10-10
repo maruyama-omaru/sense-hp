@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="js/gate.js"></script>
+  <title>お問い合わせ｜扇子訪問看護ステーション（名古屋市名東区）</title>
+  <meta name="description" content="扇子訪問看護ステーションへのお問い合わせ。お急ぎの方はお電話 052-779-1370 へ。メール sensehoukan@gmail.com・お問い合わせフォームからもご相談いただけます。営業時間 9:00〜17:00（月〜金）。" />
+  <meta name="theme-color" content="#E0918B" />
+  <link rel="canonical" href="https://daifuku-sense.com/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="お問い合わせ｜扇子訪問看護ステーション" />
+  <meta property="og:description" content="お電話（052-779-1370）・メール・フォームよりお気軽にご相談ください。" />
+  <meta property="og:url" content="https://daifuku-sense.com/contact.html" />
+  <meta property="og:site_name" content="扇子訪問看護ステーション" />
+  <meta property="og:locale" content="ja_JP" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="preloader" id="preloader"><div class="loader" aria-hidden="true"><span></span><span></span><span></span></div></div>
+
+  <header class="site-header">
+    <div class="container inner">
+      <a href="index.html" class="brand" aria-label="扇子訪問看護ステーション トップ">
+        <span class="fan-ico" aria-hidden="true"></span>
+        <span class="brand-name">扇子訪問看護ステーション<small>SENSE VISITING NURSING</small></span>
+      </a>
+      <div class="nav-wrap">
+        <nav class="gnav" aria-label="メインメニュー">
+          <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="service.html">サービス内容</a></li>
+            <li><a href="flow.html">ご利用の流れ</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="area.html">対応エリア</a></li>
+            <li><a href="contact.html" aria-current="page">お問い合わせ</a></li>
+          </ul>
+        </nav>
+        <a href="tel:0527791370" class="header-tel" aria-label="電話する 052-779-1370">
+          <span class="ico" aria-hidden="true">☎</span><span class="full">052-779-1370</span>
+        </a>
+        <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="gnav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="en">Contact</p>
+        <h1>お問い合わせ</h1>
+      </div>
+    </section>
+    <div class="container">
+      <nav class="crumbs" aria-label="パンくず"><a href="index.html">トップ</a> ／ お問い合わせ</nav>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="tel-hero reveal">
+          <p class="label">お急ぎの方・ご相談はお電話が確実です</p>
+          <a href="tel:0527791370" class="btn btn--tel"><span aria-hidden="true">☎</span><span class="num">052-779-1370</span></a>
+          <p class="hours">営業時間：9:00〜17:00（月〜金）※祝日を除く<br>FAX：052-779-1371　｜　メール：<a href="mailto:sensehoukan@gmail.com">sensehoukan@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--beige">
+      <div class="container" style="max-width:720px;">
+        <div class="sec-head reveal">
+          <span class="en">Form</span>
+          <h2>お問い合わせフォーム</h2>
+          <div class="fan-mark" aria-hidden="true"><span></span></div>
+        </div>
+        <p class="text-center lead-note reveal">※フォームの送信先は後日設定します（現在はダミー動作）。お急ぎの場合はお電話ください。</p>
+
+        <form class="form js-contact-form reveal mt-3" action="#" method="post" novalidate>
+          <div class="field">
+            <label for="name">お名前<span class="req">必須</span></label>
+            <input type="text" id="name" name="name" placeholder="例：大福 花子" required />
+          </div>
+          <div class="field">
+            <label for="email">メールアドレス<span class="req">必須</span></label>
+            <input type="email" id="email" name="email" placeholder="例：address@example.com" required />
+          </div>
+          <div class="field">
+            <label for="tel">電話番号</label>
+            <input type="tel" id="tel" name="tel" placeholder="例：052-779-1370" />
+          </div>
+          <div class="field">
+            <label for="kind">お問い合わせの種類</label>
+            <select id="kind" name="kind">
+              <option selected>お選びください</option>
+              <option value="サービスについて">サービスについて</option>
+              <option value="ご利用について">ご利用について</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">お問い合わせ内容<span class="req">必須</span></label>
+            <textarea id="message" name="message" rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+          </div>
+          <p class="note">ご記入いただいた個人情報は、お問い合わせへの対応のみに使用します。<span class="dummy">（プライバシーポリシー：後日差し込み）</span></p>
+          <div class="text-center mt-2">
+            <button type="submit" class="btn btn--tel" style="font-size:1rem;">送信する（ダミー）</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width:680px;">
+        <table class="info-table reveal">
+          <tr><th>事業所名</th><td>扇子訪問看護ステーション（株式会社 大福）</td></tr>
+          <tr><th>住所</th><td>〒465-0025<br>愛知県名古屋市名東区上社1丁目512番地 かこう館ビル2F 北号室</td></tr>
+          <tr><th>TEL</th><td><a href="tel:0527791370">052-779-1370</a></td></tr>
+          <tr><th>FAX</th><td>052-779-1371</td></tr>
+          <tr><th>メール</th><td><a href="mailto:sensehoukan@gmail.com">sensehoukan@gmail.com</a></td></tr>
+          <tr><th>営業時間</th><td>9:00〜17:00（月〜金）※祝日を除く</td></tr>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <p class="name">扇子訪問看護ステーション</p>
+        <p class="company">運営：株式会社 大福<br>2026年5月1日開設</p>
+      </div>
+      <div class="footer-info">
+        <dl>
+          <dt>住所</dt><dd>〒465-0025<br>愛知県名古屋市名東区上社1丁目512番地 かこう館ビル2F 北号室</dd>
+          <dt>TEL</dt><dd><a href="tel:0527791370">052-779-1370</a></dd>
+          <dt>FAX</dt><dd>052-779-1371</dd>
+          <dt>メール</dt><dd><a href="mailto:sensehoukan@gmail.com">sensehoukan@gmail.com</a></dd>
+          <dt>営業</dt><dd>9:00〜17:00（月〜金）※祝日を除く</dd>
+        </dl>
+      </div>
+      <div class="footer-nav">
+        <ul>
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="service.html">サービス内容</a></li>
+          <li><a href="flow.html">ご利用の流れ</a></li>
+          <li><a href="faq.html">よくある質問</a></li>
+          <li><a href="area.html">対応エリア</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+        <p class="footer-areas mt-2">対応エリア：名東区及び近隣地域（守山区・天白区・長久手市・尾張旭市・瀬戸市 ほか）</p>
+      </div>
+    </div>
+    <p class="copyright">&copy; <span class="js-year">2026</span> 扇子訪問看護ステーション（株式会社大福） All Rights Reserved.</p>
+  </footer>
+
+  <div class="tel-bar">
+    <a href="tel:0527791370"><span aria-hidden="true">☎</span> 電話する <span class="num">052-779-1370</span></a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
