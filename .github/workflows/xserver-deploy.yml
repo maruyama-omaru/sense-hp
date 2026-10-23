@@ -1,0 +1,60 @@
+# 扇子訪問看護ステーション HP を、main への push のたびにエックスサーバー（daifuku-sense.com）へ自動アップロードする。
+# 結の樹HP・And One HP（maruyama-omaru/maruyama-works）と同じ仕組み。
+#
+# 動かす条件:
+#   1. このリポジトリの Secrets に SENSE_FTP_SERVER / SENSE_FTP_USERNAME / SENSE_FTP_PASSWORD
+#      （FTP のパスワードはここ以外に置かない。チャット・AI・リポジトリのファイルにも書かない）
+#   2. このリポジトリの Variables の SENSE_DEPLOY_ENABLED
+#        未設定・false … 何もしない
+#        dryrun       … お試し運転。何を上げる（消す）予定かをログに出すだけで、サーバーは変えない
+#        true         … 本当にアップロードする
+#      最初は必ず dryrun で動かし、ログで「削除」が0件なのを確かめてから true にする。
+#
+# サーバー側の前提:
+#   - FTP アカウントの接続先を daifuku-sense.com/public_html/ に絞り、つないだ時点でその中にいる → server-dir は ./ 固定
+#   - 消す同期（dangerous-clean-slate 等）は使わない
+# 設定手順：docs/20261023_扇子HP_エックスサーバー移行と自動公開の設定手順_v1.md
+name: 扇子HP 自動公開（エックスサーバー）
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: sense-hp-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: vars.SENSE_DEPLOY_ENABLED == 'true' || vars.SENSE_DEPLOY_ENABLED == 'dryrun'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: エックスサーバーへアップロード
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.SENSE_FTP_SERVER }}
+          username: ${{ secrets.SENSE_FTP_USERNAME }}
+          password: ${{ secrets.SENSE_FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./
+          # FTP アカウントの一番上が daifuku-sense.com/public_html/。public_html/ などを足すと1段深い場所に上がってしまう
+          server-dir: ./
+          dry-run: ${{ vars.SENSE_DEPLOY_ENABLED != 'true' }}
+          log-level: ${{ vars.SENSE_DEPLOY_ENABLED != 'true' && 'verbose' || 'standard' }}
+          # 前回アップロードしたファイル（サーバーの .ftp-deploy-sync-state.json に記録）との差分だけ送る。
+          # 仕組みのファイル・資料はサイトに上げない
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            docs/**
+            **/.DS_Store
+            **/Thumbs.db
+            **/*.md
